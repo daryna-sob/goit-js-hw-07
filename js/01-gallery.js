@@ -25,6 +25,12 @@ function selectImageBigSize(e) {
     return;
   }
   const imgLink = e.target.dataset.source;
-  const instance = basicLightbox.create(`<img src="${imgLink}">`, {});
+  const instance = basicLightbox.create(`<img src="${imgLink}">`);
   instance.show();
+
+  galleryRef.addEventListener("keydown", (e) => {
+    if (e.code === "Escape") {
+      instance.close();
+    }
+  });
 }
